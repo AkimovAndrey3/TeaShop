@@ -40,14 +40,16 @@
             // 
             // AddOrderBtn
             // 
+            this.AddOrderBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.AddOrderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddOrderBtn.Location = new System.Drawing.Point(13, 215);
-            this.AddOrderBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddOrderBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AddOrderBtn.Location = new System.Drawing.Point(13, 199);
+            this.AddOrderBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddOrderBtn.Name = "AddOrderBtn";
-            this.AddOrderBtn.Size = new System.Drawing.Size(140, 60);
+            this.AddOrderBtn.Size = new System.Drawing.Size(211, 38);
             this.AddOrderBtn.TabIndex = 0;
             this.AddOrderBtn.Text = "Оформить заказ";
-            this.AddOrderBtn.UseVisualStyleBackColor = true;
+            this.AddOrderBtn.UseVisualStyleBackColor = false;
             this.AddOrderBtn.Click += new System.EventHandler(this.AddOrderBtn_Click);
             // 
             // label1
@@ -85,30 +87,32 @@
             // 
             // AddOLineItemBtn
             // 
+            this.AddOLineItemBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.AddOLineItemBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddOLineItemBtn.Location = new System.Drawing.Point(478, 215);
-            this.AddOLineItemBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddOLineItemBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AddOLineItemBtn.Location = new System.Drawing.Point(326, 199);
+            this.AddOLineItemBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddOLineItemBtn.Name = "AddOLineItemBtn";
-            this.AddOLineItemBtn.Size = new System.Drawing.Size(140, 60);
+            this.AddOLineItemBtn.Size = new System.Drawing.Size(222, 38);
             this.AddOLineItemBtn.TabIndex = 4;
             this.AddOLineItemBtn.Text = "Добавить товар";
-            this.AddOLineItemBtn.UseVisualStyleBackColor = true;
+            this.AddOLineItemBtn.UseVisualStyleBackColor = false;
             this.AddOLineItemBtn.Click += new System.EventHandler(this.AddOLineItemBtn_Click);
             // 
             // IndexTxt
             // 
             this.IndexTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.IndexTxt.Location = new System.Drawing.Point(224, 35);
-            this.IndexTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IndexTxt.Margin = new System.Windows.Forms.Padding(2);
             this.IndexTxt.Name = "IndexTxt";
-            this.IndexTxt.Size = new System.Drawing.Size(157, 26);
+            this.IndexTxt.Size = new System.Drawing.Size(324, 26);
             this.IndexTxt.TabIndex = 5;
             // 
             // descTxt
             // 
             this.descTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.descTxt.Location = new System.Drawing.Point(224, 87);
-            this.descTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descTxt.Margin = new System.Windows.Forms.Padding(2);
             this.descTxt.Name = "descTxt";
             this.descTxt.Size = new System.Drawing.Size(324, 26);
             this.descTxt.TabIndex = 6;
@@ -117,16 +121,16 @@
             // 
             this.priceTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.priceTxt.Location = new System.Drawing.Point(224, 139);
-            this.priceTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.priceTxt.Margin = new System.Windows.Forms.Padding(2);
             this.priceTxt.Name = "priceTxt";
-            this.priceTxt.Size = new System.Drawing.Size(114, 26);
+            this.priceTxt.Size = new System.Drawing.Size(324, 26);
             this.priceTxt.TabIndex = 7;
             // 
             // AddOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 314);
+            this.ClientSize = new System.Drawing.Size(560, 251);
             this.Controls.Add(this.priceTxt);
             this.Controls.Add(this.descTxt);
             this.Controls.Add(this.IndexTxt);
@@ -135,9 +139,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddOrderBtn);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddOrderForm";
-            this.Text = "AddOrderForm";
+            this.Text = "Добавить заказ";
             this.ResumeLayout(false);
             this.PerformLayout();
 

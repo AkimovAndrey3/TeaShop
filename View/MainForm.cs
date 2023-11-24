@@ -81,22 +81,27 @@ namespace TeaShop
             _mainController.DeleteShop();
         }
 
-        private void ShowGoods_Click(object sender, EventArgs e)
+        private void SaveInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _mainController.Save();
+        }
+
+        private void ProductsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _mainController.ProductsInfo(_shopName);
         }
 
-        private void ShowEmployees_Click(object sender, EventArgs e)
+        private void EmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _mainController.EmployeeInfo(_shopName);
         }
 
-        private void ShowOrders_Click(object sender, EventArgs e)
+        private void OrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _mainController.OrderInfo(_shopName);
         }
 
-        private void SaveInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             _mainController.Save();
         }

@@ -67,5 +67,10 @@ namespace TeaShop
             string selectedState = comboBox1.SelectedItem.ToString();
             _typeProduct = selectedState;
         }
+
+        private void AddOrderLineItemForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

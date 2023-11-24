@@ -39,32 +39,33 @@
             // 
             // AddOrderBtn
             // 
+            this.AddOrderBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.AddOrderBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.AddOrderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddOrderBtn.Location = new System.Drawing.Point(15, 518);
+            this.AddOrderBtn.Location = new System.Drawing.Point(360, 429);
+            this.AddOrderBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddOrderBtn.Name = "AddOrderBtn";
-            this.AddOrderBtn.Size = new System.Drawing.Size(182, 49);
+            this.AddOrderBtn.Size = new System.Drawing.Size(136, 40);
             this.AddOrderBtn.TabIndex = 4;
             this.AddOrderBtn.Text = "Добавить";
-            this.AddOrderBtn.UseVisualStyleBackColor = true;
+            this.AddOrderBtn.UseVisualStyleBackColor = false;
             this.AddOrderBtn.Click += new System.EventHandler(this.AddOrderBtn_Click);
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.index_order,
             this.desc_order,
             this.productList,
             this.totalPrice});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1056, 395);
+            this.dataGridView1.Size = new System.Drawing.Size(855, 425);
             this.dataGridView1.TabIndex = 3;
             // 
             // index_order
@@ -97,13 +98,14 @@
             // 
             // InfoAboutOrdersForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 608);
+            this.ClientSize = new System.Drawing.Size(855, 475);
             this.Controls.Add(this.AddOrderBtn);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "InfoAboutOrdersForm";
-            this.Text = "InfoAboutOrders";
+            this.Text = "Заказы";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

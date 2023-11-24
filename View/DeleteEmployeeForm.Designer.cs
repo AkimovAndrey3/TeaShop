@@ -38,74 +38,83 @@
             // 
             // ClearBtn
             // 
+            this.ClearBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ClearBtn.Location = new System.Drawing.Point(422, 193);
+            this.ClearBtn.Location = new System.Drawing.Point(190, 139);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(214, 41);
+            this.ClearBtn.Size = new System.Drawing.Size(160, 33);
             this.ClearBtn.TabIndex = 11;
             this.ClearBtn.Text = "Очистить поля";
-            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.UseVisualStyleBackColor = false;
             // 
             // DeleteEmployeeBtn
             // 
+            this.DeleteEmployeeBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.DeleteEmployeeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteEmployeeBtn.Location = new System.Drawing.Point(18, 193);
+            this.DeleteEmployeeBtn.Location = new System.Drawing.Point(11, 139);
+            this.DeleteEmployeeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DeleteEmployeeBtn.Name = "DeleteEmployeeBtn";
-            this.DeleteEmployeeBtn.Size = new System.Drawing.Size(214, 41);
+            this.DeleteEmployeeBtn.Size = new System.Drawing.Size(160, 33);
             this.DeleteEmployeeBtn.TabIndex = 10;
             this.DeleteEmployeeBtn.Text = "Удалить";
-            this.DeleteEmployeeBtn.UseVisualStyleBackColor = true;
+            this.DeleteEmployeeBtn.UseVisualStyleBackColor = false;
             this.DeleteEmployeeBtn.Click += new System.EventHandler(this.DeleteEmployeeBtn_Click);
             // 
             // LastNameTxtBox
             // 
             this.LastNameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LastNameTxtBox.Location = new System.Drawing.Point(227, 110);
+            this.LastNameTxtBox.Location = new System.Drawing.Point(170, 89);
+            this.LastNameTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LastNameTxtBox.Name = "LastNameTxtBox";
-            this.LastNameTxtBox.Size = new System.Drawing.Size(239, 30);
+            this.LastNameTxtBox.Size = new System.Drawing.Size(180, 26);
             this.LastNameTxtBox.TabIndex = 9;
             // 
             // NameTxtBox
             // 
             this.NameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameTxtBox.Location = new System.Drawing.Point(227, 47);
+            this.NameTxtBox.Location = new System.Drawing.Point(170, 38);
+            this.NameTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NameTxtBox.Name = "NameTxtBox";
-            this.NameTxtBox.Size = new System.Drawing.Size(239, 30);
+            this.NameTxtBox.Size = new System.Drawing.Size(180, 26);
             this.NameTxtBox.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Unicode MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 107);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(9, 87);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 33);
+            this.label2.Size = new System.Drawing.Size(96, 24);
             this.label2.TabIndex = 7;
             this.label2.Text = "Фамилия:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Unicode MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 38);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(9, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 33);
+            this.label1.Size = new System.Drawing.Size(56, 24);
             this.label1.TabIndex = 6;
             this.label1.Text = "Имя :";
             // 
             // DeleteEmployeeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 266);
+            this.ClientSize = new System.Drawing.Size(369, 184);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.DeleteEmployeeBtn);
             this.Controls.Add(this.LastNameTxtBox);
             this.Controls.Add(this.NameTxtBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DeleteEmployeeForm";
-            this.Text = "DeleteEmployeeForm";
+            this.Text = "Уволить сотрудника";
             this.ResumeLayout(false);
             this.PerformLayout();
 

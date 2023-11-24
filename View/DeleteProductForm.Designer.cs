@@ -36,42 +36,47 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Unicode MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 58);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(9, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 33);
+            this.label2.Size = new System.Drawing.Size(149, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Индекс товара:";
             // 
             // IndexTxtBox
             // 
             this.IndexTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IndexTxtBox.Location = new System.Drawing.Point(234, 61);
+            this.IndexTxtBox.Location = new System.Drawing.Point(176, 31);
+            this.IndexTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IndexTxtBox.Name = "IndexTxtBox";
-            this.IndexTxtBox.Size = new System.Drawing.Size(239, 30);
+            this.IndexTxtBox.Size = new System.Drawing.Size(180, 26);
             this.IndexTxtBox.TabIndex = 3;
             // 
             // DeleteProductBtn
             // 
+            this.DeleteProductBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.DeleteProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteProductBtn.Location = new System.Drawing.Point(18, 136);
+            this.DeleteProductBtn.Location = new System.Drawing.Point(99, 73);
+            this.DeleteProductBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DeleteProductBtn.Name = "DeleteProductBtn";
-            this.DeleteProductBtn.Size = new System.Drawing.Size(214, 41);
+            this.DeleteProductBtn.Size = new System.Drawing.Size(160, 33);
             this.DeleteProductBtn.TabIndex = 4;
             this.DeleteProductBtn.Text = "Удалить";
-            this.DeleteProductBtn.UseVisualStyleBackColor = true;
+            this.DeleteProductBtn.UseVisualStyleBackColor = false;
             this.DeleteProductBtn.Click += new System.EventHandler(this.DeleteProductBtn_Click);
             // 
             // DeleteProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 227);
+            this.ClientSize = new System.Drawing.Size(367, 119);
             this.Controls.Add(this.DeleteProductBtn);
             this.Controls.Add(this.IndexTxtBox);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DeleteProductForm";
-            this.Text = "DeleteProductForm";
+            this.Text = "Удалить продукт";
             this.Load += new System.EventHandler(this.DeleteProductForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
