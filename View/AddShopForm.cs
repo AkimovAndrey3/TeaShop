@@ -17,16 +17,6 @@ namespace TeaShop
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddShopForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void AddShopBtn_Click(object sender, EventArgs e)
         {
             if (name.TextLength > 0 &&
@@ -37,14 +27,14 @@ namespace TeaShop
                 workEnd.TextLength > 0)
             {
                 Shop shop = new Shop();
-               shop.name =  name.Text;
+               shop.Name =  name.Text;
                shop.PhoneNumber = phoneNumber.Text;
-               shop.website = website.Text;
-               shop.adress = addres.Text;
+               shop.Website = website.Text;
+               shop.Adress = addres.Text;
                shop.BeginWork = workBegin.Text;
                shop.EndWork = workEnd.Text;
 
-                ContrDB.AddShopDB(shop);
+                DBController.AddShopDB(shop);
                 Close();
             }
             else

@@ -12,16 +12,17 @@ namespace TeaShop
 {
     public partial class AddOrderLineItemForm : Form
     {
-        public Order orderItem = new Order();
-        public Category categories;
-        public string shop_name;
-        public string typeProduct { get; set; }
+        private Order _order = new Order();
+        private Category _categories;
+        private string _shopName;
+        private string _typeProduct;
+
         public AddOrderLineItemForm(string shopName, Order order)
         {
             InitializeComponent();
-            shop_name = shopName;
-            categories = new Category();
-            foreach (string type in categories.GetCategories())
+            _shopName = shopName;
+            _categories = new Category();
+            foreach (string type in _categories.GetCategories())
             {
                 comboBox1.Items.Add(type);
             }
@@ -42,17 +43,17 @@ namespace TeaShop
                descr.TextLength > 0 &&
                comboBox1.SelectedItem != null)
             {
-                prod.product.product.name = name.Text;
-                prod.product.product.id = Int32.Parse(index.Text);
-                prod.product.product.producer = producer.Text;
-                prod.product.product.date_create = date.Text;
-                prod.product.product.price = Int32.Parse(price.Text);
-                prod.product.product.count = Int32.Parse(count.Text);
-                prod.product.product.description = descr.Text;
-                prod.product.category = typeProduct;
+                prod.Product.Item.Name = name.Text;
+                prod.Product.Item.Id = Int32.Parse(index.Text);
+                prod.Product.Item.Producer = producer.Text;
+                prod.Product.Item.CreationDate = date.Text;
+                prod.Product.Item.Price = Int32.Parse(price.Text);
+                prod.Product.Item.Count = Int32.Parse(count.Text);
+                prod.Product.Item.Description = descr.Text;
+                prod.Product.Category = _typeProduct;
 
-                orderItem.AddOrderLineItem(prod);
-                AddOrderForm addOrderForm = new AddOrderForm(shop_name, orderItem);
+                _order.AddOrderLineItem(prod);
+                AddOrderForm addOrderForm = new AddOrderForm(_shopName, _order);
                 addOrderForm.Show();
                 Close();
             }
@@ -64,7 +65,7 @@ namespace TeaShop
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedState = comboBox1.SelectedItem.ToString();
-            typeProduct = selectedState;
+            _typeProduct = selectedState;
         }
     }
 }

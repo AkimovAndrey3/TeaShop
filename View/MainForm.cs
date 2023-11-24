@@ -12,61 +12,59 @@ namespace TeaShop
 {
     public partial class MainForm : Form
     {
-        MainContr control;
-        Size panelSize;
-        public string NameShop { get; set; }
+        private MainController _mainController;
+        private Size _panelSize;
+        private string _shopName;
+
         public MainForm()
         {
             InitializeComponent();
-            panelSize = new Size();
-            //Инициализация контролера
-            control = new MainContr();
-            panelSize = tabPage1.Size;
-            //Добавляем обработчик панели
-            control.update += update;
-            //Очищаем все вкладки
+            _panelSize = new Size();
+
+            _mainController = new MainController();
+            _panelSize = tabPage1.Size;
+            _mainController.Update += Update;
+
             ShopTabControl.TabPages.Clear();
-            //Добавляем обработчик событий переключения вкладки
             ShopTabControl.SelectedIndexChanged += NewTab;
-            //Заполняем информацию о магазине
+
             Shop shop = new Shop();
-            shop = control.GetShop()[0];
-            NameShop = shop.name;
-            nameShop.Text = shop.name;
+            shop = _mainController.GetShop()[0];
+            _shopName = shop.Name;
+            nameShop.Text = shop.Name;
             phone.Text = shop.PhoneNumber;
-            address.Text = shop.adress;
-            site.Text = shop.website;
+            address.Text = shop.Adress;
+            site.Text = shop.Website;
             workBegin.Text = shop.BeginWork;
             workEnd.Text = shop.EndWork;
-            update();
+            Update();
         }
 
         private void NewTab(object sender, EventArgs e)
         {
             Shop shopItem = new Shop();
             if (ShopTabControl.SelectedIndex < 0)
-                shopItem = control.GetShop()[0];
+                shopItem = _mainController.GetShop()[0];
             else
-                shopItem = control.GetShop()[ShopTabControl.SelectedIndex];
-            //Переопределяем поля для корректной записи данных
-            //Берём название фирмы, которое открыто в данный момент
-            NameShop = shopItem.name;
-            nameShop.Text = shopItem.name;
+                shopItem = _mainController.GetShop()[ShopTabControl.SelectedIndex];
+
+            _shopName = shopItem.Name;
+            nameShop.Text = shopItem.Name;
             phone.Text = shopItem.PhoneNumber;
-            address.Text = shopItem.adress;
-            site.Text = shopItem.website;
+            address.Text = shopItem.Adress;
+            site.Text = shopItem.Website;
             workBegin.Text = shopItem.BeginWork;
             workEnd.Text = shopItem.EndWork;
         }
-        private void update()
+        private void Update()
         {
             ShopTabControl.TabPages.Clear();
-            foreach (Shop shopItem in control.GetShop())
+            foreach (Shop shopItem in _mainController.GetShop())
             {
                 TabPage tab = new TabPage();
-                tab.Text = shopItem.name;
+                tab.Text = shopItem.Name;
                 FlowLayoutPanel panel = new FlowLayoutPanel();
-                panel.Size = panelSize;
+                panel.Size = _panelSize;
                
                 tab.Controls.Add(panel);
                 ShopTabControl.TabPages.Add(tab);
@@ -75,36 +73,32 @@ namespace TeaShop
 
         private void AddShopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            control.AddShop();
-
+            _mainController.AddShop();
         }
 
         private void DeleteShopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            control.DeleteShop();
+            _mainController.DeleteShop();
         }
 
         private void ShowGoods_Click(object sender, EventArgs e)
         {
-            Button btm = (Button)sender;
-            control.ProductsInfo(NameShop);
+            _mainController.ProductsInfo(_shopName);
         }
 
         private void ShowEmployees_Click(object sender, EventArgs e)
         {
-            Button btm = (Button)sender;
-            control.EmployeeInfo(NameShop);
+            _mainController.EmployeeInfo(_shopName);
         }
 
         private void ShowOrders_Click(object sender, EventArgs e)
         {
-            Button btm = (Button)sender;
-            control.OrderInfo(NameShop);
+            _mainController.OrderInfo(_shopName);
         }
 
         private void SaveInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            control.Save();
+            _mainController.Save();
         }
     }
 }

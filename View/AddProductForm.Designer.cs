@@ -187,7 +187,6 @@
             this.label8.Size = new System.Drawing.Size(108, 25);
             this.label8.TabIndex = 31;
             this.label8.Text = "Описание:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // ClearBtn
             // 

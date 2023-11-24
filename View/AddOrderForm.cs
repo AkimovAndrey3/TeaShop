@@ -12,13 +12,14 @@ namespace TeaShop
 {
     public partial class AddOrderForm : Form
     {
-        public string shop_name { get; set; }
-        public Order order_item = new Order();
-        public AddOrderForm(string ShopName, Order new_order)
+        private string _shopName;
+        private Order _order = new Order();
+
+        public AddOrderForm(string shopName, Order newOrder)
         {
             InitializeComponent();
-            shop_name = ShopName;
-            order_item = new_order;
+            _shopName = shopName;
+            _order = newOrder;
         }
 
         private void AddOrderBtn_Click(object sender, EventArgs e)
@@ -27,10 +28,10 @@ namespace TeaShop
               descTxt.TextLength > 0 &&
               priceTxt.TextLength > 0)
             {
-                order_item.order_num = Int32.Parse(IndexTxt.Text);
-                order_item.descr = descTxt.Text;
-                order_item.total_price = Int32.Parse(priceTxt.Text);
-                ContrDB.AddOrderDB(shop_name, order_item);
+                _order.OrderNumber = Int32.Parse(IndexTxt.Text);
+                _order.Description = descTxt.Text;
+                _order.TotalPrice = Int32.Parse(priceTxt.Text);
+                DBController.AddOrderDB(_shopName, _order);
                 Close();
             }
             else
@@ -41,8 +42,8 @@ namespace TeaShop
 
         private void AddOLineItemBtn_Click(object sender, EventArgs e)
         {
-            AddOrderLineItemForm OLineitem = new AddOrderLineItemForm(shop_name, order_item);
-            OLineitem.Show();
+            AddOrderLineItemForm orderLineitem = new AddOrderLineItemForm(_shopName, _order);
+            orderLineitem.Show();
             Close();
         }
     }

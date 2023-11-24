@@ -12,24 +12,20 @@ namespace TeaShop
 {
     public partial class AddProductForm : Form
     {
-        public string shop_name { get; set; }
-        public Category categories;
-        public string typeProduct { get; set; }
+        private string _shopName { get; set; }
+        private Category _categories;
+        private string _typeProduct { get; set; }
+
         public AddProductForm(string nameShop)
         {
             InitializeComponent();
-            categories = new Category();
-            shop_name = nameShop;
-            foreach( string type in categories.GetCategories())
+            _categories = new Category();
+            _shopName = nameShop;
+            foreach( string type in _categories.GetCategories())
             {
                 comboBox1.Items.Add(type);
             }
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -45,16 +41,16 @@ namespace TeaShop
                 comboBox1.SelectedItem != null)
             {
                 Product prod = new Product();
-                prod.product.name = name.Text;
-                prod.product.id = Int32.Parse(index.Text);
-                prod.product.producer = producer.Text;
-                prod.product.date_create = date.Text;
-                prod.product.price = Int32.Parse(price.Text);
-                prod.product.count = Int32.Parse(count.Text);
-                prod.product.description = descr.Text;
-                prod.category = typeProduct;
+                prod.Item.Name = name.Text;
+                prod.Item.Id = Int32.Parse(index.Text);
+                prod.Item.Producer = producer.Text;
+                prod.Item.CreationDate = date.Text;
+                prod.Item.Price = Int32.Parse(price.Text);
+                prod.Item.Count = Int32.Parse(count.Text);
+                prod.Item.Description = descr.Text;
+                prod.Category = _typeProduct;
 
-                ContrDB.AddProductDB(shop_name, prod);
+                DBController.AddProductDB(_shopName, prod);
                 Close();
             }
             else
@@ -77,7 +73,7 @@ namespace TeaShop
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedState = comboBox1.SelectedItem.ToString();
-            typeProduct = selectedState;
+            _typeProduct = selectedState;
         }
     }
 }

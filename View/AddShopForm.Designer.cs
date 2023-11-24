@@ -64,7 +64,6 @@
             this.label4.Size = new System.Drawing.Size(105, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Название:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label2
             // 
@@ -202,7 +201,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AddShopForm";
             this.Text = "Добавить магазин";
-            this.Load += new System.EventHandler(this.AddShopForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

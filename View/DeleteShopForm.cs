@@ -10,24 +10,18 @@ using System.Windows.Forms;
 
 namespace TeaShop
 {
-    public partial class DeleteProductForm : Form
+    public partial class DeleteShopForm : Form
     {
-      public string  name_shop { get; set; }
-        public DeleteProductForm(string shopName)
+        public DeleteShopForm()
         {
             InitializeComponent();
-            name_shop = shopName;
         }
 
-        private void DeleteProductForm_Load(object sender, EventArgs e)
+        private void DeleteShop_Click(object sender, EventArgs e)
         {
-        }
-
-        private void DeleteProductBtn_Click(object sender, EventArgs e)
-        {
-            if (IndexTxtBox.TextLength > 0)
+            if (txtBoxDeleteNameShop.TextLength > 0)
             {
-                ContrDB.DeleteProductDB(name_shop, Int32.Parse(IndexTxtBox.Text));
+                DBController.DeleteShopDB(txtBoxDeleteNameShop.Text);
                 Close();
             }
             else

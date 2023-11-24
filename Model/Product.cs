@@ -8,12 +8,12 @@ namespace TeaShop
 {
    public class Product
     {
-        public string category { get; set; }
-        public ProductItem product { get; set; }
+        public string Category { get; set; }
+        public ProductItem Item { get; set; }
 
         public Product()
         {
-            product = new ProductItem();
+            Item = new ProductItem();
         }
     }
 }

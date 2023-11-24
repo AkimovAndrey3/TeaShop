@@ -7,7 +7,7 @@
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ComputerShop.Program" Collapsed="true">
+  <Class Name="TeaShop.Program" Collapsed="true">
     <Position X="1.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
@@ -26,60 +26,53 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Class Name="ComputerShop.Shop">
+  <Class Name="TeaShop.Shop">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACCAAUAhCQIIgAAAAIAIQAgIAAAEAAAJAEAAAAAAAAA=</HashCode>
-      <FileName>Shop.cs</FileName>
+      <HashCode>ACCAAUAgCQMIgAAAACAAQAwIAAgAAAAAAEAAAAAgAAA=</HashCode>
+      <FileName>Model\Shop.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ComputerShop.ProductItem">
+  <Class Name="TeaShop.ProductItem">
     <Position X="5.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAAAJAAAABAAAAAEAAAAAAAAAAABgAA=</HashCode>
-      <FileName>ProductItem.cs</FileName>
+      <HashCode>QAACAAAAAQAgAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ProductItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ComputerShop.Employee">
+  <Class Name="TeaShop.Employee">
     <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAQAAAAAAABAAAAAAAAAQAAAAAAAAAAAAABACQAAAiA=</HashCode>
-      <FileName>Employee.cs</FileName>
+      <HashCode>AAAAAEgEAAAAAAAAAAAAQAAAAAAAAAABAAAAAAAAQig=</HashCode>
+      <FileName>Model\Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ComputerShop.Product">
+  <Class Name="TeaShop.Product">
     <Position X="4.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
-      <FileName>Product.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Model\Product.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ComputerShop.Order">
+  <Class Name="TeaShop.Order">
     <Position X="2" Y="6.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAAAAAACAAAAAAAAAQAQAABABAAAAiA=</HashCode>
-      <FileName>Order.cs</FileName>
+      <HashCode>AACAAAIAAAAgAAAAAAAAAAgAAAAAQAAAAABAAAAAAiQ=</HashCode>
+      <FileName>Model\Order.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ComputerShop.Customer">
-    <Position X="4.25" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
-      <FileName>Customer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ComputerShop.OrderLineitem">
+  <Class Name="TeaShop.OrderLineitem">
     <Position X="6.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>OrderLineitem.cs</FileName>
+      <FileName>Model\OrderLineitem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ComputerShop.Category">
+  <Class Name="TeaShop.Category">
     <Position X="6.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Category.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Category.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

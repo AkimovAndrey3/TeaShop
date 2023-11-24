@@ -12,19 +12,19 @@ namespace TeaShop
 {
     public partial class DeleteEmployeeForm : Form
     {
-        public string name_shop { get; set; }
+        private string _nameShop { get; set; }
 
         public DeleteEmployeeForm(string shopName)
         {
             InitializeComponent();
-            name_shop = shopName;
+            _nameShop = shopName;
         }
 
         private void DeleteEmployeeBtn_Click(object sender, EventArgs e)
         {
             if (NameTxtBox.TextLength > 0 && LastNameTxtBox.TextLength > 0)
             {
-                ContrDB.DeleteEmployeeDB(name_shop, NameTxtBox.Text, LastNameTxtBox.Text);
+                DBController.DeleteEmployeeDB(_nameShop, NameTxtBox.Text, LastNameTxtBox.Text);
                 Close();
             }
             else
