@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TeaShop.Controllers;
+using TeaShop.View;
 
 namespace TeaShop
 {
@@ -22,6 +24,7 @@ namespace TeaShop
             _panelSize = new Size();
 
             _mainController = new MainController();
+
             _panelSize = tabPage1.Size;
             _mainController.Update += Update;
 
@@ -29,7 +32,7 @@ namespace TeaShop
             ShopTabControl.SelectedIndexChanged += NewTab;
 
             Shop shop = new Shop();
-            shop = _mainController.GetShop()[0];
+            shop = _mainController.GetShops()[0];
             _shopName = shop.Name;
             nameShop.Text = shop.Name;
             phone.Text = shop.PhoneNumber;
@@ -37,6 +40,7 @@ namespace TeaShop
             site.Text = shop.Website;
             workBegin.Text = shop.BeginWork;
             workEnd.Text = shop.EndWork;
+
             Update();
         }
 
@@ -44,9 +48,9 @@ namespace TeaShop
         {
             Shop shopItem = new Shop();
             if (ShopTabControl.SelectedIndex < 0)
-                shopItem = _mainController.GetShop()[0];
+                shopItem = _mainController.GetShops()[0];
             else
-                shopItem = _mainController.GetShop()[ShopTabControl.SelectedIndex];
+                shopItem = _mainController.GetShops()[ShopTabControl.SelectedIndex];
 
             _shopName = shopItem.Name;
             nameShop.Text = shopItem.Name;
@@ -59,7 +63,7 @@ namespace TeaShop
         private void Update()
         {
             ShopTabControl.TabPages.Clear();
-            foreach (Shop shopItem in _mainController.GetShop())
+            foreach (Shop shopItem in _mainController.GetShops())
             {
                 TabPage tab = new TabPage();
                 tab.Text = shopItem.Name;
@@ -68,6 +72,33 @@ namespace TeaShop
                
                 tab.Controls.Add(panel);
                 ShopTabControl.TabPages.Add(tab);
+            }
+
+            UpdateButtons();
+        }
+
+        private void UpdateButtons()
+        {
+            if (UserController.IsLoggedIn)
+            {
+                LoginBtn.Visible = false;
+                logoutBtn.Visible = true;
+                beginWorkBtn.Visible = true;
+                endWorkBtn.Visible = true;
+
+                EmployeesToolStripMenuItem.Visible = false;
+                if(UserController.IsAdmin)
+                {
+                    EmployeesToolStripMenuItem.Visible = true;
+                }
+            }
+            else
+            {
+                LoginBtn.Visible = true;
+                logoutBtn.Visible = false;
+                beginWorkBtn.Visible = false;
+                endWorkBtn.Visible = false;
+                EmployeesToolStripMenuItem.Visible = false;
             }
         }
 
@@ -104,6 +135,27 @@ namespace TeaShop
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             _mainController.Save();
+        }
+
+        private void LoginBtn_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm(_mainController);
+            loginForm.ShowDialog();
+        }
+
+        private void beginWorkBtn_Click(object sender, EventArgs e)
+        {
+            UserController.BeginWork(_shopName, DateTime.Now);
+        }
+
+        private void endWorkBtn_Click(object sender, EventArgs e)
+        {
+            UserController.EndWork(_shopName, DateTime.Now);
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            UserController.LogoutUser();
         }
     }
 }

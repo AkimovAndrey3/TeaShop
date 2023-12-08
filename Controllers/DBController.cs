@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using TeaShop.Model;
 
 namespace TeaShop
 {
    public class DBController
     {
         private static List<Shop> _shops = new List<Shop>();
+        private static List<User> _users = new List<User>();
 
         private static readonly string _filename = "DataBase.xml";
 
@@ -18,7 +20,7 @@ namespace TeaShop
             XmlDocument document = new XmlDocument();
             document.Load(_filename);
 
-            foreach (XmlNode shopNode in document.ChildNodes[0].ChildNodes)
+            foreach (XmlNode shopNode in document.ChildNodes[0].ChildNodes[0].ChildNodes)
             {
                 Shop shopItem = new Shop();
 
@@ -50,11 +52,11 @@ namespace TeaShop
                 {
                     Employee employeeItem = new Employee();
 
-                    employeeItem.FirstName = EmployeeNode.ChildNodes[0].InnerText;
-                    employeeItem.LastName = EmployeeNode.ChildNodes[1].InnerText;
-                    employeeItem.PhoneNumber = EmployeeNode.ChildNodes[2].InnerText;
-                    employeeItem.Status = EmployeeNode.ChildNodes[3].InnerText;
-                    employeeItem.Experience = EmployeeNode.ChildNodes[4].InnerText;
+                    employeeItem.EmployeeId = int.Parse(EmployeeNode.ChildNodes[0].InnerText);
+                    employeeItem.FirstName = EmployeeNode.ChildNodes[1].InnerText;
+                    employeeItem.LastName = EmployeeNode.ChildNodes[2].InnerText;
+                    employeeItem.PhoneNumber = EmployeeNode.ChildNodes[3].InnerText;
+                    employeeItem.Status = EmployeeNode.ChildNodes[4].InnerText;
                     employeeItem.WorkBegin = EmployeeNode.ChildNodes[5].InnerText;
                     employeeItem.WorkEnd = EmployeeNode.ChildNodes[6].InnerText;
 
@@ -89,6 +91,16 @@ namespace TeaShop
                 }
                 _shops.Add(shopItem);
             }
+
+            foreach (XmlNode userNode in document.ChildNodes[0].ChildNodes[1].ChildNodes)
+            {
+                User user = new User();
+                user.EmployeeId = int.Parse(userNode.ChildNodes[0].InnerText);
+                user.IsAdmin = bool.Parse(userNode.ChildNodes[1].InnerText);
+                user.Email = userNode.ChildNodes[2].InnerText;
+                user.Password = userNode.ChildNodes[3].InnerText;
+                _users.Add(user);
+            }
         }
       
         public static void SaveToFile()
@@ -99,6 +111,8 @@ namespace TeaShop
             document.RemoveAll();
 
             XmlNode BaseNode = document.CreateElement("Base");
+
+            XmlNode shopsNode = document.CreateElement("shops");
 
             foreach (Shop shop in _shops)
             {
@@ -174,6 +188,10 @@ namespace TeaShop
                 {
                     XmlNode EmployerNode = document.CreateElement("employer");
 
+                    XmlNode EmployeeIdNode = document.CreateElement("employeeId");
+                    EmployeeIdNode.InnerText = employer.EmployeeId.ToString();
+                    EmployerNode.AppendChild(EmployeeIdNode);
+
                     XmlNode FnameNode = document.CreateElement("firstName");
                     FnameNode.InnerText = employer.FirstName;
                     EmployerNode.AppendChild(FnameNode);
@@ -187,12 +205,8 @@ namespace TeaShop
                     EmployerNode.AppendChild(PhoneNumNode);
 
                     XmlNode StatusNode = document.CreateElement("status");
-                    StatusNode.InnerText = employer.Status;
+                    StatusNode.InnerText = employer.Status.ToString();
                     EmployerNode.AppendChild(StatusNode);
-
-                    XmlNode ExpNode = document.CreateElement("experience");
-                    ExpNode.InnerText = employer.Experience;
-                    EmployerNode.AppendChild(ExpNode);
 
                     XmlNode BeginWorkNode = document.CreateElement("workBegin");
                     BeginWorkNode.InnerText = employer.WorkBegin;
@@ -267,9 +281,36 @@ namespace TeaShop
                 ShopNode.AppendChild(GoodsNode);
                 ShopNode.AppendChild(EmployeesNode);
                 ShopNode.AppendChild(OrdersNode);
-                BaseNode.AppendChild(ShopNode);
+                shopsNode.AppendChild(ShopNode);
             }
 
+            XmlNode usersNode = document.CreateElement("users");
+
+            foreach (User user in _users)
+            {
+                XmlNode userNode = document.CreateElement("users");
+
+                XmlNode employeeIdNode = document.CreateElement("employeeId");
+                employeeIdNode.InnerText = user.EmployeeId.ToString();
+                userNode.AppendChild(employeeIdNode);
+
+                XmlNode isAdminNode = document.CreateElement("isAdmin");
+                isAdminNode.InnerText = user.IsAdmin.ToString();
+                userNode.AppendChild(isAdminNode);
+
+                XmlNode emailNode = document.CreateElement("email");
+                emailNode.InnerText = user.Email;
+                userNode.AppendChild(emailNode);
+
+                XmlNode passwordNode = document.CreateElement("password");
+                passwordNode.InnerText = user.Password;
+                userNode.AppendChild(passwordNode);
+
+                usersNode.AppendChild(userNode);
+            }
+
+            BaseNode.AppendChild(shopsNode);
+            BaseNode.AppendChild(usersNode);
             document.AppendChild(BaseNode);
             document.Save(_filename);
         }
@@ -289,6 +330,24 @@ namespace TeaShop
             return _shops.AsReadOnly();
         }
 
+        public static List<Employee> GetEmployees()
+        {
+            List<Employee> employees = new List<Employee>();
+            foreach (Shop shop in _shops)
+            {
+                employees.AddRange(shop.GetEmployees());
+            }
+            return employees;
+        }
+        public static List<User> GetUsers()
+        {
+            return new List<User>(_users);
+        }
+        public static void SetUsers(List<User> users)
+        {
+            _users = users;
+        }
+
         public static void AddProductDB(string shopName, Product newProduct)
         {
             ShopController.AddProduct(shopName, newProduct, _shops);
@@ -302,6 +361,11 @@ namespace TeaShop
         public static void AddEmployeeDB(string shopName, Employee newEmployee)
         {
             ShopController.AddEmployee(shopName, newEmployee, _shops);
+        }
+
+        public static void UpdateEmployeeDB(string shopName, int oldEmployee, Employee newEmployee)
+        {
+            ShopController.UpdateEmployee(shopName, oldEmployee, newEmployee, _shops);
         }
 
         public static void DeleteEmployeeDB(string shopName, string firstName, string lastName)

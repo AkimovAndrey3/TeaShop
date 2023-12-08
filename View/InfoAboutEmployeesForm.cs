@@ -25,19 +25,7 @@ namespace TeaShop
             _shopController = new ShopController();
             _shopController.OnUpdate += UpdateTable;
 
-            int index = 0;
-            foreach (Employee item in _employees)
-            {
-                string name = item.FirstName;
-                string lname = item.LastName;
-                string phone = item.PhoneNumber;
-                string status = item.Status;
-                string exp = item.Experience;
-                string BeginWork = item.WorkBegin;
-                string EndWork = item.WorkEnd;
-                dataGridView1.Rows.Add(name, lname, phone, status, exp, BeginWork, EndWork);
-                dataGridView1.Rows[index++].ReadOnly = true;
-            }
+            UpdateTable();
         }
         private void UpdateTable()
         {
@@ -45,22 +33,16 @@ namespace TeaShop
             int index = 0;
             foreach (Employee item in _employees)
             {
+                string id = item.EmployeeId.ToString();
                 string name = item.FirstName;
                 string lname = item.LastName;
                 string phone = item.PhoneNumber;
-                string status = item.Status;
-                string exp = item.Experience;
+                string status = item.Status.ToString();
                 string BeginWork = item.WorkBegin;
                 string EndWork = item.WorkEnd;
-                dataGridView1.Rows.Add(name, lname, phone, status, exp, BeginWork, EndWork);
+                dataGridView1.Rows.Add(id, name, lname, phone, status, BeginWork, EndWork);
                 dataGridView1.Rows[index++].ReadOnly = true;
             }
-        }
-
-        private void AddEmployeeBtn_Click(object sender, EventArgs e)
-        {
-            AddEmployeeForm addEmployeeForm = new AddEmployeeForm(_nameShop);
-            addEmployeeForm.Show();
         }
 
         private void DeleteEmployeeBtn_Click(object sender, EventArgs e)

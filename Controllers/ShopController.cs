@@ -70,6 +70,18 @@ namespace TeaShop
             return false;
         }
 
+        public static bool UpdateEmployee(string shopName, int oldEmployee, Employee newEmployee, List<Shop> shops)
+        {
+            foreach (Shop shop in shops)
+            {
+                if (shop.Name == shopName)
+                {
+                    return shop.UpdateEmployee(oldEmployee, newEmployee);
+                }
+            }
+            return false;
+        }
+
         public static void DeleteEmployee(string shopName, string firstName, string lastName, List<Shop> shops)
         {
             foreach (Shop shop in shops)

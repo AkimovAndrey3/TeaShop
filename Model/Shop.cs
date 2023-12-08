@@ -87,6 +87,19 @@ namespace TeaShop
             return true;
         }
 
+        public bool UpdateEmployee(int oldEmployee, Employee newEmployee)
+        {
+            Employee employee = _employees.Find(e => e.EmployeeId == oldEmployee);
+            if(employee as object == null)
+            {
+                return false;
+            }
+
+            _employees.Remove(employee);
+            _employees.Add(newEmployee);
+            return true;
+        }
+
         public bool DeleteEmployee(string firstName, string lastName)
         {
             foreach (Employee employee in _employees)

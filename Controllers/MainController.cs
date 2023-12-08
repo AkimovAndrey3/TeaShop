@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeaShop.Controllers;
 
 namespace TeaShop
 {
     public class MainController
     {
-
         public delegate void WorkDone();
         public event WorkDone Update;
 
@@ -18,19 +18,32 @@ namespace TeaShop
         public MainController()
         {
             DBController.LoadFromFile();
+
+            EmployeeController.Init();
+            UserController.Init();
+
+            UserController.OnUserLoggedIn += EmitUpdate;
+            UserController.OnUserLoggedOut += EmitUpdate;
+
             _shops = new List<Shop>(DBController.GetShops());
             _countShop = _shops.Count;
         }
 
+        private void EmitUpdate()
+        {
+            Update?.Invoke();
+        }
+
         public void Save()
         {
+            UserController.Save();
             DBController.SaveToFile();
         }
 
         private void Signal(object sender, EventArgs e)
         {
             _shops = new List<Shop>(DBController.GetShops());
-            Update();
+            Update?.Invoke();
         }
 
         public void AddShop()
@@ -47,7 +60,7 @@ namespace TeaShop
             deleteShop.Show();
         }
 
-        public IReadOnlyList<Shop> GetShop()
+        public IReadOnlyList<Shop> GetShops()
         {
             return _shops.AsReadOnly();
         }

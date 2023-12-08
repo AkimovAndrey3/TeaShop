@@ -28,32 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ClearBtn = new System.Windows.Forms.Button();
             this.DeleteEmployeeBtn = new System.Windows.Forms.Button();
-            this.LastNameTxtBox = new System.Windows.Forms.TextBox();
-            this.NameTxtBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.IDTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // ClearBtn
-            // 
-            this.ClearBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ClearBtn.Location = new System.Drawing.Point(190, 139);
-            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(160, 33);
-            this.ClearBtn.TabIndex = 11;
-            this.ClearBtn.Text = "Очистить поля";
-            this.ClearBtn.UseVisualStyleBackColor = false;
             // 
             // DeleteEmployeeBtn
             // 
             this.DeleteEmployeeBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.DeleteEmployeeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteEmployeeBtn.Location = new System.Drawing.Point(11, 139);
-            this.DeleteEmployeeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteEmployeeBtn.Location = new System.Drawing.Point(106, 86);
+            this.DeleteEmployeeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteEmployeeBtn.Name = "DeleteEmployeeBtn";
             this.DeleteEmployeeBtn.Size = new System.Drawing.Size(160, 33);
             this.DeleteEmployeeBtn.TabIndex = 10;
@@ -61,34 +46,14 @@
             this.DeleteEmployeeBtn.UseVisualStyleBackColor = false;
             this.DeleteEmployeeBtn.Click += new System.EventHandler(this.DeleteEmployeeBtn_Click);
             // 
-            // LastNameTxtBox
-            // 
-            this.LastNameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LastNameTxtBox.Location = new System.Drawing.Point(170, 89);
-            this.LastNameTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.LastNameTxtBox.Name = "LastNameTxtBox";
-            this.LastNameTxtBox.Size = new System.Drawing.Size(180, 26);
-            this.LastNameTxtBox.TabIndex = 9;
-            // 
             // NameTxtBox
             // 
-            this.NameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameTxtBox.Location = new System.Drawing.Point(170, 38);
-            this.NameTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.NameTxtBox.Name = "NameTxtBox";
-            this.NameTxtBox.Size = new System.Drawing.Size(180, 26);
-            this.NameTxtBox.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(9, 87);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 24);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Фамилия:";
+            this.IDTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IDTxtBox.Location = new System.Drawing.Point(170, 38);
+            this.IDTxtBox.Margin = new System.Windows.Forms.Padding(2);
+            this.IDTxtBox.Name = "NameTxtBox";
+            this.IDTxtBox.Size = new System.Drawing.Size(180, 26);
+            this.IDTxtBox.TabIndex = 8;
             // 
             // label1
             // 
@@ -97,22 +62,19 @@
             this.label1.Location = new System.Drawing.Point(9, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 24);
+            this.label1.Size = new System.Drawing.Size(139, 24);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Имя :";
+            this.label1.Text = "Id сотрудника:";
             // 
             // DeleteEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 184);
-            this.Controls.Add(this.ClearBtn);
+            this.ClientSize = new System.Drawing.Size(369, 130);
             this.Controls.Add(this.DeleteEmployeeBtn);
-            this.Controls.Add(this.LastNameTxtBox);
-            this.Controls.Add(this.NameTxtBox);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.IDTxtBox);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DeleteEmployeeForm";
             this.Text = "Уволить сотрудника";
             this.ResumeLayout(false);
@@ -121,12 +83,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Button DeleteEmployeeBtn;
-        private System.Windows.Forms.TextBox LastNameTxtBox;
-        private System.Windows.Forms.TextBox NameTxtBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox IDTxtBox;
         private System.Windows.Forms.Label label1;
     }
 }

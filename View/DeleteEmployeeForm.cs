@@ -7,24 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TeaShop.Controllers;
 
 namespace TeaShop
 {
     public partial class DeleteEmployeeForm : Form
     {
-        private string _nameShop { get; set; }
+        private string _shopName { get; set; }
 
         public DeleteEmployeeForm(string shopName)
         {
             InitializeComponent();
-            _nameShop = shopName;
+            _shopName = shopName;
         }
 
         private void DeleteEmployeeBtn_Click(object sender, EventArgs e)
         {
-            if (NameTxtBox.TextLength > 0 && LastNameTxtBox.TextLength > 0)
+            if (IDTxtBox.TextLength > 0)
             {
-                DBController.DeleteEmployeeDB(_nameShop, NameTxtBox.Text, LastNameTxtBox.Text);
+                UserController.DeleteUser(_shopName, int.Parse(IDTxtBox.Text));
                 Close();
             }
             else

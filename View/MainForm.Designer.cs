@@ -47,12 +47,16 @@
             this.ShopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.ShopTabControl = new System.Windows.Forms.TabControl();
             this.label4 = new System.Windows.Forms.Label();
-            this.OrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoginBtn = new System.Windows.Forms.Button();
+            this.beginWorkBtn = new System.Windows.Forms.Button();
+            this.endWorkBtn = new System.Windows.Forms.Button();
+            this.logoutBtn = new System.Windows.Forms.Button();
             this.menuStrip3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.ShopTabControl.SuspendLayout();
@@ -188,13 +192,13 @@
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SaveInformationToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 25);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // SaveInformationToolStripMenuItem
             // 
             this.SaveInformationToolStripMenuItem.Name = "SaveInformationToolStripMenuItem";
-            this.SaveInformationToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.SaveInformationToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.SaveInformationToolStripMenuItem.Text = "Сохранить информацию";
             this.SaveInformationToolStripMenuItem.Click += new System.EventHandler(this.SaveInformationToolStripMenuItem_Click);
             // 
@@ -204,20 +208,20 @@
             this.AddShopToolStripMenuItem,
             this.DeleteShopToolStripMenuItem});
             this.магазиныToolStripMenuItem.Name = "магазиныToolStripMenuItem";
-            this.магазиныToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.магазиныToolStripMenuItem.Size = new System.Drawing.Size(94, 25);
             this.магазиныToolStripMenuItem.Text = "Магазины";
             // 
             // AddShopToolStripMenuItem
             // 
             this.AddShopToolStripMenuItem.Name = "AddShopToolStripMenuItem";
-            this.AddShopToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.AddShopToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.AddShopToolStripMenuItem.Text = "Добавить магазин";
             this.AddShopToolStripMenuItem.Click += new System.EventHandler(this.AddShopToolStripMenuItem_Click);
             // 
             // DeleteShopToolStripMenuItem
             // 
             this.DeleteShopToolStripMenuItem.Name = "DeleteShopToolStripMenuItem";
-            this.DeleteShopToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.DeleteShopToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.DeleteShopToolStripMenuItem.Text = "Удалить магазин";
             this.DeleteShopToolStripMenuItem.Click += new System.EventHandler(this.DeleteShopToolStripMenuItem_Click);
             // 
@@ -228,22 +232,29 @@
             this.EmployeesToolStripMenuItem,
             this.OrdersToolStripMenuItem});
             this.ShopToolStripMenuItem.Name = "ShopToolStripMenuItem";
-            this.ShopToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.ShopToolStripMenuItem.Size = new System.Drawing.Size(83, 25);
             this.ShopToolStripMenuItem.Text = "Магазин";
             // 
             // ProductsToolStripMenuItem
             // 
             this.ProductsToolStripMenuItem.Name = "ProductsToolStripMenuItem";
-            this.ProductsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ProductsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.ProductsToolStripMenuItem.Text = "Товары";
             this.ProductsToolStripMenuItem.Click += new System.EventHandler(this.ProductsToolStripMenuItem_Click);
             // 
             // EmployeesToolStripMenuItem
             // 
             this.EmployeesToolStripMenuItem.Name = "EmployeesToolStripMenuItem";
-            this.EmployeesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.EmployeesToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.EmployeesToolStripMenuItem.Text = "Сотрудники";
             this.EmployeesToolStripMenuItem.Click += new System.EventHandler(this.EmployeesToolStripMenuItem_Click);
+            // 
+            // OrdersToolStripMenuItem
+            // 
+            this.OrdersToolStripMenuItem.Name = "OrdersToolStripMenuItem";
+            this.OrdersToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.OrdersToolStripMenuItem.Text = "Заказы";
+            this.OrdersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
             // tabPage1
             // 
@@ -300,18 +311,67 @@
             this.label4.TabIndex = 30;
             this.label4.Text = "/";
             // 
-            // OrdersToolStripMenuItem
+            // LoginBtn
             // 
-            this.OrdersToolStripMenuItem.Name = "OrdersToolStripMenuItem";
-            this.OrdersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.OrdersToolStripMenuItem.Text = "Заказы";
-            this.OrdersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
+            this.LoginBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.LoginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoginBtn.Location = new System.Drawing.Point(206, 290);
+            this.LoginBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Size = new System.Drawing.Size(143, 36);
+            this.LoginBtn.TabIndex = 51;
+            this.LoginBtn.Text = "Войти";
+            this.LoginBtn.UseVisualStyleBackColor = false;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
+            // 
+            // beginWorkBtn
+            // 
+            this.beginWorkBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.beginWorkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.beginWorkBtn.Location = new System.Drawing.Point(5, 290);
+            this.beginWorkBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.beginWorkBtn.Name = "beginWorkBtn";
+            this.beginWorkBtn.Size = new System.Drawing.Size(177, 36);
+            this.beginWorkBtn.TabIndex = 52;
+            this.beginWorkBtn.Text = "Начать работу";
+            this.beginWorkBtn.UseVisualStyleBackColor = false;
+            this.beginWorkBtn.Click += new System.EventHandler(this.beginWorkBtn_Click);
+            // 
+            // endWorkBtn
+            // 
+            this.endWorkBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.endWorkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.endWorkBtn.Location = new System.Drawing.Point(356, 290);
+            this.endWorkBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.endWorkBtn.Name = "endWorkBtn";
+            this.endWorkBtn.Size = new System.Drawing.Size(207, 36);
+            this.endWorkBtn.TabIndex = 53;
+            this.endWorkBtn.Text = "Закончить работу";
+            this.endWorkBtn.UseVisualStyleBackColor = false;
+            this.endWorkBtn.Click += new System.EventHandler(this.endWorkBtn_Click);
+            // 
+            // logoutBtn
+            // 
+            this.logoutBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.logoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.logoutBtn.Location = new System.Drawing.Point(206, 290);
+            this.logoutBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(143, 36);
+            this.logoutBtn.TabIndex = 54;
+            this.logoutBtn.Text = "Выйти";
+            this.logoutBtn.UseVisualStyleBackColor = false;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 297);
+            this.ClientSize = new System.Drawing.Size(574, 337);
+            this.Controls.Add(this.logoutBtn);
+            this.Controls.Add(this.endWorkBtn);
+            this.Controls.Add(this.beginWorkBtn);
+            this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ShopTabControl);
             this.Controls.Add(this.workEnd);
@@ -366,5 +426,9 @@
         private System.Windows.Forms.ToolStripMenuItem ProductsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmployeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OrdersToolStripMenuItem;
+        private System.Windows.Forms.Button LoginBtn;
+        private System.Windows.Forms.Button beginWorkBtn;
+        private System.Windows.Forms.Button endWorkBtn;
+        private System.Windows.Forms.Button logoutBtn;
     }
 }
